@@ -1,0 +1,24 @@
+class Solution
+{
+    public long findMinDiff (ArrayList<Integer> a, int n, int m)
+    {
+        // your code here
+        
+        if(m ==0 && n==0){
+            return 0;
+        }
+        
+        if (m>n){
+            return -1;
+        }
+        
+        Collections.sort(a);
+        
+        int minDif = Integer.MAX_VALUE;
+        
+        for(int i=0;i+m-1<n;i++){
+           minDif = Math.min((a.get(i+m-1)-a.get(i)),minDif);
+        }
+        return minDif;
+    }
+}
